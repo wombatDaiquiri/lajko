@@ -1,3 +1,13 @@
+# wombat custom directives;
+# notes is a text file for general copy-paste buffering
+notes
+# data-snapshots/ is for storing scraped posts
+data-snapshots/
+# data-processed/ is for storing scraped posts
+data-processed/
+# my IDE data
+.idea/
+
 # Logs
 logs
 *.log
@@ -85,7 +95,7 @@ web_modules/
 
 # Next.js build output
 .next
-out
+out.html
 
 # Nuxt.js build / generate output
 .nuxt
