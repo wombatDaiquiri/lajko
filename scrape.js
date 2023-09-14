@@ -11,7 +11,7 @@ if (!fs.existsSync('data-snapshots')) {
 }
 
 async function main() {
-    for (let i= 0; i < 20; i++) {
+    for (let i= 0; i < 1; i++) {
         const pageNumber = i+1;
         console.log('scraping page ' + pageNumber);
 
