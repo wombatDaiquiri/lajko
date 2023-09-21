@@ -17,7 +17,9 @@ async function main() {
 
         let resp;
         try {
-            resp = await axios.get(`https://www.hejto.pl/najnowsze/strona/${pageNumber}`);
+            // this will later be replaced by our own database so treat it as debugging data
+            resp = await axios.get(`https://www.hejto.pl/gorace/okres/6h/strona/${pageNumber}`);
+            // resp = await axios.get(`https://www.hejto.pl/najnowsze/strona/${pageNumber}`);
             await sleepBetweenRequests();
         } catch (err) {
             console.log(err);
@@ -85,7 +87,7 @@ function scrapeMicroblogPost(postURL) {
         const $ = cheerio.load(response.data);
         const article = $('article');
 
-        const post = {}
+        const post = {images: []};
 
         const originalPost = article.find('div').first();
         originalPost.find('div').first().children().each((i, el) => {
@@ -95,10 +97,17 @@ function scrapeMicroblogPost(postURL) {
                 post.author = post.authorURL.split('/')[2];
                 post.avatar = $(el).find('img').first().attr('src');
                 post.likes = $(el).find('button').last().text();
-            }
+                post.url = postURL
+            } else
             if (i === 1) {
                 // content
-                post.content = $(el).text()
+                // post.content = $(el).text()
+                post.content = $(el).find('.parsed.text-sm').html()
+            } else {
+                // whatever, but we'll just add all images to post.images
+                $(el).find('img').each((i, el) => {
+                    post.images.push($(el).attr("src"))
+                })
             }
         })
 
@@ -110,26 +119,53 @@ function scrapeMicroblogPost(postURL) {
             }
             if (i===1) {
                 // comments
-                $(el).children().first().find('div.bg-grey-250').each((i, el) => {
-                    console.log(i)
-                    console.log($(el).text())
-                    console.log($(el).find('div.parsed.text-sm').text())
+                $(el).find('div.relative.flex.flex-col.gap-2.pt-px').children().each((i, el) => {
+                    if ($(el).hasClass('gap-2')) {
+                        // list of subcomments
 
-                    const comment = {};
+                        $(el).children().each((i, el) => {
+                            // subcomment
+                            // append to subcomments array of last comment
+                            const subcomment = {};
 
-                    comment.authorURL = $(el).find('a').first().attr('href');
-                    comment.author = comment.authorURL.split('/')[2];
-                    comment.avatar = $(el).find('img').first().attr('src');
-                    comment.likes = $(el).find('button').last().text();
+                            subcomment.authorURL = $(el).find('a').first().attr('href');
+                            subcomment.author = subcomment.authorURL.split('/')[2];
+                            subcomment.avatar = $(el).find('img').first().attr('src');
+                            subcomment.likes = $(el).find('button').last().text();
 
-                    comment.content = $(el).find('div.parsed.text-sm').text();
-                    comment.images = [];
+                            // subcomment.content = $(el).find('div.parsed.text-sm').text();
+                            subcomment.content = $(el).find('div.parsed.text-sm').html();
+                            subcomment.images = [];
 
-                    $(el).find('div.w-full img').each((i, el) => {
-                        comment.images.push($(el).attr("src"))
-                    })
+                            $(el).find('div.w-full img').each((i, el) => {
+                                subcomment.images.push($(el).attr("src"))
+                            })
 
-                    post.comments.push(comment);
+                            post.comments[post.comments.length - 1].subcomments.push(subcomment);
+                        })
+                    } else {
+                        // top-level comment
+                        console.log(i)
+                        console.log($(el).text())
+                        console.log($(el).find('div.parsed.text-sm').text())
+
+                        const comment = {subcomments: []};
+
+                        comment.authorURL = $(el).find('a').first().attr('href');
+                        comment.author = comment.authorURL.split('/')[2];
+                        comment.avatar = $(el).find('img').first().attr('src');
+                        comment.likes = $(el).find('button').last().text();
+
+                        // comment.content = $(el).find('div.parsed.text-sm').text();
+                        comment.content = $(el).find('div.parsed.text-sm').html();
+                        comment.images = [];
+
+                        $(el).find('div.w-full img').each((i, el) => {
+                            comment.images.push($(el).attr("src"))
+                        })
+
+                        post.comments.push(comment);
+                    }
                 })
             }
         })

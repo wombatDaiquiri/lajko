@@ -1,12 +1,14 @@
 # wombat custom directives;
-# notes is a text file for general copy-paste buffering
-notes
+# notes.txt is a text file for general copy-paste buffering
+notes.txt
 # data-snapshots/ is for storing scraped posts
 data-snapshots/
 # data-processed/ is for storing scraped posts
 data-processed/
 # my IDE data
 .idea/
+# a place where I write posts to be uploaded to hejto.pl with some schedule
+posts/
 
 # Logs
 logs
