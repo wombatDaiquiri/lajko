@@ -1,0 +1,93 @@
+# GraphQL schema example
+#
+# https://gqlgen.com/getting-started/
+#
+# All timestamp are in unix timestamp (seconds) in UTC timezone.
+
+type Query {
+    posts(query: PostQuery): [Post!]!
+}
+
+# type Mutation {
+#      createPost(input: NewPost!): Post!
+# }
+
+enum PostSource {
+    HEJTO
+}
+
+enum Direction {
+    ASC
+    DESC
+}
+
+type Post {
+    ulid: String!
+    createdAt: Int!
+    updatedAt: Int!
+
+    source: PostSource!
+    sourceUrl: String!
+    sourceCreatedAt: Int!
+
+    title: String!
+    author: Author!
+    slug: String!
+
+    content: String!
+    images: [String!]
+    attachments: [String!]
+    tags: [Tag!]
+    comments: [Comment!]
+
+    likes: Int!
+}
+
+type Author {
+    ulid: String!
+    createdAt: Int!
+    updatedAt: Int!
+
+    source: PostSource!
+    sourceUrl: String!
+    sourceCreatedAt: Int!
+
+    username: String!
+    displayedUsername: String!
+    avatarUrl: String!
+    description: String!
+}
+
+type Tag {
+    ulid: String!
+    createdAt: Int!
+    updatedAt: Int!
+
+    name: String!
+    urls: [String!]
+}
+
+type Comment {
+    ulid: String!
+    createdAt: Int!
+    updatedAt: Int!
+
+    author: Author!
+
+    content: String!
+    images: [String!]
+    attachments: [String!]
+    tags: [Tag!]
+
+    likes: Int!
+}
+
+input PostQuery {
+    source: PostSource
+    page: Int
+    limit: Int
+    orderBy: String
+    orderDir: Direction
+}
+
+

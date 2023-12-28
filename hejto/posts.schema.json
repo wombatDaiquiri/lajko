@@ -1,0 +1,1466 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "page": {
+      "type": "integer"
+    },
+    "limit": {
+      "type": "integer"
+    },
+    "pages": {
+      "type": "integer"
+    },
+    "total": {
+      "type": "integer"
+    },
+    "_links": {
+      "type": "object",
+      "properties": {
+        "self": {
+          "type": "object",
+          "properties": {
+            "href": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "href"
+          ]
+        },
+        "first": {
+          "type": "object",
+          "properties": {
+            "href": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "href"
+          ]
+        },
+        "last": {
+          "type": "object",
+          "properties": {
+            "href": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "href"
+          ]
+        }
+      },
+      "required": [
+        "self",
+        "first",
+        "last"
+      ]
+    },
+    "_embedded": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": [
+            {
+              "type": "object",
+              "properties": {
+                "content": {
+                  "type": "string"
+                },
+                "content_plain": {
+                  "type": "string"
+                },
+                "images": {
+                  "type": "array",
+                  "items": {}
+                },
+                "content_links": {
+                  "type": "array",
+                  "items": {}
+                },
+                "post_slug": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "string"
+                },
+                "post": {
+                  "type": "object",
+                  "properties": {
+                    "title": {
+                      "type": "string"
+                    },
+                    "content": {
+                      "type": "string"
+                    },
+                    "content_plain": {
+                      "type": "string"
+                    },
+                    "excerpt": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "type": "string"
+                    },
+                    "slug": {
+                      "type": "string"
+                    },
+                    "uuid": {
+                      "type": "string"
+                    },
+                    "discr": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "title",
+                    "content",
+                    "content_plain",
+                    "excerpt",
+                    "type",
+                    "slug",
+                    "uuid",
+                    "discr"
+                  ]
+                },
+                "author": {
+                  "type": "object",
+                  "properties": {
+                    "username": {
+                      "type": "string"
+                    },
+                    "avatar": {
+                      "type": "object",
+                      "properties": {
+                        "urls": {
+                          "type": "object",
+                          "properties": {
+                            "100x100": {
+                              "type": "string"
+                            },
+                            "250x250": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "100x100",
+                            "250x250"
+                          ]
+                        },
+                        "alt": {
+                          "type": "string"
+                        },
+                        "uuid": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "urls",
+                        "alt",
+                        "uuid"
+                      ]
+                    },
+                    "background": {
+                      "type": "object",
+                      "properties": {
+                        "urls": {
+                          "type": "object",
+                          "properties": {
+                            "400x300": {
+                              "type": "string"
+                            },
+                            "1200x900": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "400x300",
+                            "1200x900"
+                          ]
+                        },
+                        "uuid": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "urls",
+                        "uuid"
+                      ]
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "roles": {
+                      "type": "array",
+                      "items": [
+                        {
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "controversial": {
+                      "type": "boolean"
+                    },
+                    "current_rank": {
+                      "type": "string"
+                    },
+                    "current_color": {
+                      "type": "string"
+                    },
+                    "verified": {
+                      "type": "boolean"
+                    },
+                    "sponsor": {
+                      "type": "boolean"
+                    },
+                    "ex_sponsor": {
+                      "type": "boolean"
+                    },
+                    "created_at": {
+                      "type": "string"
+                    },
+                    "_links": {
+                      "type": "object",
+                      "properties": {
+                        "self": {
+                          "type": "object",
+                          "properties": {
+                            "href": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "href"
+                          ]
+                        },
+                        "follows": {
+                          "type": "object",
+                          "properties": {
+                            "href": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "href"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "self",
+                        "follows"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "username",
+                    "avatar",
+                    "background",
+                    "status",
+                    "roles",
+                    "controversial",
+                    "current_rank",
+                    "current_color",
+                    "verified",
+                    "sponsor",
+                    "ex_sponsor",
+                    "created_at",
+                    "_links"
+                  ]
+                },
+                "num_likes": {
+                  "type": "integer"
+                },
+                "num_reports": {
+                  "type": "integer"
+                },
+                "is_liked": {
+                  "type": "boolean"
+                },
+                "is_reported": {
+                  "type": "boolean"
+                },
+                "replies": {
+                  "type": "array",
+                  "items": {}
+                },
+                "likes_enabled": {
+                  "type": "boolean"
+                },
+                "created_at": {
+                  "type": "string"
+                },
+                "uuid": {
+                  "type": "string"
+                },
+                "_links": {
+                  "type": "object",
+                  "properties": {
+                    "self": {
+                      "type": "object",
+                      "properties": {
+                        "href": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "href"
+                      ]
+                    },
+                    "likes": {
+                      "type": "object",
+                      "properties": {
+                        "href": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "href"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "self",
+                    "likes"
+                  ]
+                }
+              },
+              "required": [
+                "content",
+                "content_plain",
+                "images",
+                "content_links",
+                "post_slug",
+                "status",
+                "post",
+                "author",
+                "num_likes",
+                "num_reports",
+                "is_liked",
+                "is_reported",
+                "replies",
+                "likes_enabled",
+                "created_at",
+                "uuid",
+                "_links"
+              ]
+            },
+            {
+              "type": "object",
+              "properties": {
+                "content": {
+                  "type": "string"
+                },
+                "content_plain": {
+                  "type": "string"
+                },
+                "images": {
+                  "type": "array",
+                  "items": {}
+                },
+                "content_links": {
+                  "type": "array",
+                  "items": {}
+                },
+                "post_slug": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "string"
+                },
+                "post": {
+                  "type": "object",
+                  "properties": {
+                    "title": {
+                      "type": "string"
+                    },
+                    "content": {
+                      "type": "string"
+                    },
+                    "content_plain": {
+                      "type": "string"
+                    },
+                    "excerpt": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "type": "string"
+                    },
+                    "slug": {
+                      "type": "string"
+                    },
+                    "uuid": {
+                      "type": "string"
+                    },
+                    "discr": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "title",
+                    "content",
+                    "content_plain",
+                    "excerpt",
+                    "type",
+                    "slug",
+                    "uuid",
+                    "discr"
+                  ]
+                },
+                "author": {
+                  "type": "object",
+                  "properties": {
+                    "username": {
+                      "type": "string"
+                    },
+                    "avatar": {
+                      "type": "object",
+                      "properties": {
+                        "urls": {
+                          "type": "object",
+                          "properties": {
+                            "100x100": {
+                              "type": "string"
+                            },
+                            "250x250": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "100x100",
+                            "250x250"
+                          ]
+                        },
+                        "uuid": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "urls",
+                        "uuid"
+                      ]
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "roles": {
+                      "type": "array",
+                      "items": [
+                        {
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "controversial": {
+                      "type": "boolean"
+                    },
+                    "current_rank": {
+                      "type": "string"
+                    },
+                    "current_color": {
+                      "type": "string"
+                    },
+                    "verified": {
+                      "type": "boolean"
+                    },
+                    "sponsor": {
+                      "type": "boolean"
+                    },
+                    "ex_sponsor": {
+                      "type": "boolean"
+                    },
+                    "created_at": {
+                      "type": "string"
+                    },
+                    "_links": {
+                      "type": "object",
+                      "properties": {
+                        "self": {
+                          "type": "object",
+                          "properties": {
+                            "href": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "href"
+                          ]
+                        },
+                        "follows": {
+                          "type": "object",
+                          "properties": {
+                            "href": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "href"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "self",
+                        "follows"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "username",
+                    "avatar",
+                    "status",
+                    "roles",
+                    "controversial",
+                    "current_rank",
+                    "current_color",
+                    "verified",
+                    "sponsor",
+                    "ex_sponsor",
+                    "created_at",
+                    "_links"
+                  ]
+                },
+                "num_likes": {
+                  "type": "integer"
+                },
+                "num_reports": {
+                  "type": "integer"
+                },
+                "is_liked": {
+                  "type": "boolean"
+                },
+                "is_reported": {
+                  "type": "boolean"
+                },
+                "replies": {
+                  "type": "array",
+                  "items": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "content": {
+                          "type": "string"
+                        },
+                        "content_plain": {
+                          "type": "string"
+                        },
+                        "images": {
+                          "type": "array",
+                          "items": [
+                            {
+                              "type": "object",
+                              "properties": {
+                                "urls": {
+                                  "type": "object",
+                                  "properties": {
+                                    "250x250": {
+                                      "type": "string"
+                                    },
+                                    "500x500": {
+                                      "type": "string"
+                                    },
+                                    "1200x900": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "250x250",
+                                    "500x500",
+                                    "1200x900"
+                                  ]
+                                },
+                                "uuid": {
+                                  "type": "string"
+                                },
+                                "position": {
+                                  "type": "integer"
+                                }
+                              },
+                              "required": [
+                                "urls",
+                                "uuid",
+                                "position"
+                              ]
+                            }
+                          ]
+                        },
+                        "content_links": {
+                          "type": "array",
+                          "items": {}
+                        },
+                        "post_slug": {
+                          "type": "string"
+                        },
+                        "status": {
+                          "type": "string"
+                        },
+                        "post": {
+                          "type": "object",
+                          "properties": {
+                            "title": {
+                              "type": "string"
+                            },
+                            "content": {
+                              "type": "string"
+                            },
+                            "content_plain": {
+                              "type": "string"
+                            },
+                            "excerpt": {
+                              "type": "string"
+                            },
+                            "type": {
+                              "type": "string"
+                            },
+                            "slug": {
+                              "type": "string"
+                            },
+                            "uuid": {
+                              "type": "string"
+                            },
+                            "discr": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "title",
+                            "content",
+                            "content_plain",
+                            "excerpt",
+                            "type",
+                            "slug",
+                            "uuid",
+                            "discr"
+                          ]
+                        },
+                        "author": {
+                          "type": "object",
+                          "properties": {
+                            "username": {
+                              "type": "string"
+                            },
+                            "status": {
+                              "type": "string"
+                            },
+                            "roles": {
+                              "type": "array",
+                              "items": [
+                                {
+                                  "type": "string"
+                                }
+                              ]
+                            },
+                            "controversial": {
+                              "type": "boolean"
+                            },
+                            "current_rank": {
+                              "type": "string"
+                            },
+                            "current_color": {
+                              "type": "string"
+                            },
+                            "verified": {
+                              "type": "boolean"
+                            },
+                            "sponsor": {
+                              "type": "boolean"
+                            },
+                            "ex_sponsor": {
+                              "type": "boolean"
+                            },
+                            "created_at": {
+                              "type": "string"
+                            },
+                            "_links": {
+                              "type": "object",
+                              "properties": {
+                                "self": {
+                                  "type": "object",
+                                  "properties": {
+                                    "href": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "href"
+                                  ]
+                                },
+                                "follows": {
+                                  "type": "object",
+                                  "properties": {
+                                    "href": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "href"
+                                  ]
+                                }
+                              },
+                              "required": [
+                                "self",
+                                "follows"
+                              ]
+                            }
+                          },
+                          "required": [
+                            "username",
+                            "status",
+                            "roles",
+                            "controversial",
+                            "current_rank",
+                            "current_color",
+                            "verified",
+                            "sponsor",
+                            "ex_sponsor",
+                            "created_at",
+                            "_links"
+                          ]
+                        },
+                        "num_likes": {
+                          "type": "integer"
+                        },
+                        "num_reports": {
+                          "type": "integer"
+                        },
+                        "is_liked": {
+                          "type": "boolean"
+                        },
+                        "is_reported": {
+                          "type": "boolean"
+                        },
+                        "replies": {
+                          "type": "array",
+                          "items": {}
+                        },
+                        "likes_enabled": {
+                          "type": "boolean"
+                        },
+                        "created_at": {
+                          "type": "string"
+                        },
+                        "uuid": {
+                          "type": "string"
+                        },
+                        "_links": {
+                          "type": "object",
+                          "properties": {
+                            "self": {
+                              "type": "object",
+                              "properties": {
+                                "href": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "href"
+                              ]
+                            },
+                            "likes": {
+                              "type": "object",
+                              "properties": {
+                                "href": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "href"
+                              ]
+                            }
+                          },
+                          "required": [
+                            "self",
+                            "likes"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "content",
+                        "content_plain",
+                        "images",
+                        "content_links",
+                        "post_slug",
+                        "status",
+                        "post",
+                        "author",
+                        "num_likes",
+                        "num_reports",
+                        "is_liked",
+                        "is_reported",
+                        "replies",
+                        "likes_enabled",
+                        "created_at",
+                        "uuid",
+                        "_links"
+                      ]
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "content": {
+                          "type": "string"
+                        },
+                        "content_plain": {
+                          "type": "string"
+                        },
+                        "images": {
+                          "type": "array",
+                          "items": {}
+                        },
+                        "content_links": {
+                          "type": "array",
+                          "items": {}
+                        },
+                        "post_slug": {
+                          "type": "string"
+                        },
+                        "status": {
+                          "type": "string"
+                        },
+                        "post": {
+                          "type": "object",
+                          "properties": {
+                            "title": {
+                              "type": "string"
+                            },
+                            "content": {
+                              "type": "string"
+                            },
+                            "content_plain": {
+                              "type": "string"
+                            },
+                            "excerpt": {
+                              "type": "string"
+                            },
+                            "type": {
+                              "type": "string"
+                            },
+                            "slug": {
+                              "type": "string"
+                            },
+                            "uuid": {
+                              "type": "string"
+                            },
+                            "discr": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "title",
+                            "content",
+                            "content_plain",
+                            "excerpt",
+                            "type",
+                            "slug",
+                            "uuid",
+                            "discr"
+                          ]
+                        },
+                        "author": {
+                          "type": "object",
+                          "properties": {
+                            "username": {
+                              "type": "string"
+                            },
+                            "avatar": {
+                              "type": "object",
+                              "properties": {
+                                "urls": {
+                                  "type": "object",
+                                  "properties": {
+                                    "100x100": {
+                                      "type": "string"
+                                    },
+                                    "250x250": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "100x100",
+                                    "250x250"
+                                  ]
+                                },
+                                "uuid": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "urls",
+                                "uuid"
+                              ]
+                            },
+                            "status": {
+                              "type": "string"
+                            },
+                            "roles": {
+                              "type": "array",
+                              "items": [
+                                {
+                                  "type": "string"
+                                }
+                              ]
+                            },
+                            "controversial": {
+                              "type": "boolean"
+                            },
+                            "current_rank": {
+                              "type": "string"
+                            },
+                            "current_color": {
+                              "type": "string"
+                            },
+                            "verified": {
+                              "type": "boolean"
+                            },
+                            "sponsor": {
+                              "type": "boolean"
+                            },
+                            "ex_sponsor": {
+                              "type": "boolean"
+                            },
+                            "created_at": {
+                              "type": "string"
+                            },
+                            "_links": {
+                              "type": "object",
+                              "properties": {
+                                "self": {
+                                  "type": "object",
+                                  "properties": {
+                                    "href": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "href"
+                                  ]
+                                },
+                                "follows": {
+                                  "type": "object",
+                                  "properties": {
+                                    "href": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "href"
+                                  ]
+                                }
+                              },
+                              "required": [
+                                "self",
+                                "follows"
+                              ]
+                            }
+                          },
+                          "required": [
+                            "username",
+                            "avatar",
+                            "status",
+                            "roles",
+                            "controversial",
+                            "current_rank",
+                            "current_color",
+                            "verified",
+                            "sponsor",
+                            "ex_sponsor",
+                            "created_at",
+                            "_links"
+                          ]
+                        },
+                        "num_likes": {
+                          "type": "integer"
+                        },
+                        "num_reports": {
+                          "type": "integer"
+                        },
+                        "is_liked": {
+                          "type": "boolean"
+                        },
+                        "is_reported": {
+                          "type": "boolean"
+                        },
+                        "replies": {
+                          "type": "array",
+                          "items": {}
+                        },
+                        "likes_enabled": {
+                          "type": "boolean"
+                        },
+                        "created_at": {
+                          "type": "string"
+                        },
+                        "uuid": {
+                          "type": "string"
+                        },
+                        "_links": {
+                          "type": "object",
+                          "properties": {
+                            "self": {
+                              "type": "object",
+                              "properties": {
+                                "href": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "href"
+                              ]
+                            },
+                            "likes": {
+                              "type": "object",
+                              "properties": {
+                                "href": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "href"
+                              ]
+                            }
+                          },
+                          "required": [
+                            "self",
+                            "likes"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "content",
+                        "content_plain",
+                        "images",
+                        "content_links",
+                        "post_slug",
+                        "status",
+                        "post",
+                        "author",
+                        "num_likes",
+                        "num_reports",
+                        "is_liked",
+                        "is_reported",
+                        "replies",
+                        "likes_enabled",
+                        "created_at",
+                        "uuid",
+                        "_links"
+                      ]
+                    }
+                  ]
+                },
+                "likes_enabled": {
+                  "type": "boolean"
+                },
+                "created_at": {
+                  "type": "string"
+                },
+                "uuid": {
+                  "type": "string"
+                },
+                "_links": {
+                  "type": "object",
+                  "properties": {
+                    "self": {
+                      "type": "object",
+                      "properties": {
+                        "href": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "href"
+                      ]
+                    },
+                    "likes": {
+                      "type": "object",
+                      "properties": {
+                        "href": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "href"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "self",
+                    "likes"
+                  ]
+                }
+              },
+              "required": [
+                "content",
+                "content_plain",
+                "images",
+                "content_links",
+                "post_slug",
+                "status",
+                "post",
+                "author",
+                "num_likes",
+                "num_reports",
+                "is_liked",
+                "is_reported",
+                "replies",
+                "likes_enabled",
+                "created_at",
+                "uuid",
+                "_links"
+              ]
+            },
+            {
+              "type": "object",
+              "properties": {
+                "content_plain": {
+                  "type": "string"
+                },
+                "images": {
+                  "type": "array",
+                  "items": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "urls": {
+                          "type": "object",
+                          "properties": {
+                            "250x250": {
+                              "type": "string"
+                            },
+                            "500x500": {
+                              "type": "string"
+                            },
+                            "1200x900": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "250x250",
+                            "500x500",
+                            "1200x900"
+                          ]
+                        },
+                        "uuid": {
+                          "type": "string"
+                        },
+                        "position": {
+                          "type": "integer"
+                        }
+                      },
+                      "required": [
+                        "urls",
+                        "uuid",
+                        "position"
+                      ]
+                    }
+                  ]
+                },
+                "content_links": {
+                  "type": "array",
+                  "items": {}
+                },
+                "post_slug": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "string"
+                },
+                "post": {
+                  "type": "object",
+                  "properties": {
+                    "title": {
+                      "type": "string"
+                    },
+                    "content": {
+                      "type": "string"
+                    },
+                    "content_plain": {
+                      "type": "string"
+                    },
+                    "excerpt": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "type": "string"
+                    },
+                    "slug": {
+                      "type": "string"
+                    },
+                    "uuid": {
+                      "type": "string"
+                    },
+                    "discr": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "title",
+                    "content",
+                    "content_plain",
+                    "excerpt",
+                    "type",
+                    "slug",
+                    "uuid",
+                    "discr"
+                  ]
+                },
+                "author": {
+                  "type": "object",
+                  "properties": {
+                    "username": {
+                      "type": "string"
+                    },
+                    "sex": {
+                      "type": "string"
+                    },
+                    "avatar": {
+                      "type": "object",
+                      "properties": {
+                        "urls": {
+                          "type": "object",
+                          "properties": {
+                            "100x100": {
+                              "type": "string"
+                            },
+                            "250x250": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "100x100",
+                            "250x250"
+                          ]
+                        },
+                        "uuid": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "urls",
+                        "uuid"
+                      ]
+                    },
+                    "background": {
+                      "type": "object",
+                      "properties": {
+                        "urls": {
+                          "type": "object",
+                          "properties": {
+                            "400x300": {
+                              "type": "string"
+                            },
+                            "1200x900": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "400x300",
+                            "1200x900"
+                          ]
+                        },
+                        "uuid": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "urls",
+                        "uuid"
+                      ]
+                    },
+                    "userbar": {
+                      "type": "object",
+                      "properties": {
+                        "urls": {
+                          "type": "object",
+                          "properties": {
+                            "original": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "original"
+                          ]
+                        },
+                        "uuid": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "urls",
+                        "uuid"
+                      ]
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "roles": {
+                      "type": "array",
+                      "items": [
+                        {
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "controversial": {
+                      "type": "boolean"
+                    },
+                    "current_rank": {
+                      "type": "string"
+                    },
+                    "current_color": {
+                      "type": "string"
+                    },
+                    "verified": {
+                      "type": "boolean"
+                    },
+                    "sponsor": {
+                      "type": "boolean"
+                    },
+                    "ex_sponsor": {
+                      "type": "boolean"
+                    },
+                    "created_at": {
+                      "type": "string"
+                    },
+                    "_links": {
+                      "type": "object",
+                      "properties": {
+                        "self": {
+                          "type": "object",
+                          "properties": {
+                            "href": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "href"
+                          ]
+                        },
+                        "follows": {
+                          "type": "object",
+                          "properties": {
+                            "href": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "href"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "self",
+                        "follows"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "username",
+                    "sex",
+                    "avatar",
+                    "background",
+                    "userbar",
+                    "status",
+                    "roles",
+                    "controversial",
+                    "current_rank",
+                    "current_color",
+                    "verified",
+                    "sponsor",
+                    "ex_sponsor",
+                    "created_at",
+                    "_links"
+                  ]
+                },
+                "num_likes": {
+                  "type": "integer"
+                },
+                "num_reports": {
+                  "type": "integer"
+                },
+                "is_liked": {
+                  "type": "boolean"
+                },
+                "is_reported": {
+                  "type": "boolean"
+                },
+                "replies": {
+                  "type": "array",
+                  "items": {}
+                },
+                "likes_enabled": {
+                  "type": "boolean"
+                },
+                "created_at": {
+                  "type": "string"
+                },
+                "uuid": {
+                  "type": "string"
+                },
+                "_links": {
+                  "type": "object",
+                  "properties": {
+                    "self": {
+                      "type": "object",
+                      "properties": {
+                        "href": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "href"
+                      ]
+                    },
+                    "likes": {
+                      "type": "object",
+                      "properties": {
+                        "href": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "href"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "self",
+                    "likes"
+                  ]
+                }
+              },
+              "required": [
+                "content_plain",
+                "images",
+                "content_links",
+                "post_slug",
+                "status",
+                "post",
+                "author",
+                "num_likes",
+                "num_reports",
+                "is_liked",
+                "is_reported",
+                "replies",
+                "likes_enabled",
+                "created_at",
+                "uuid",
+                "_links"
+              ]
+            }
+          ]
+        }
+      },
+      "required": [
+        "items"
+      ]
+    }
+  },
+  "required": [
+    "page",
+    "limit",
+    "pages",
+    "total",
+    "_links",
+    "_embedded"
+  ]
+}

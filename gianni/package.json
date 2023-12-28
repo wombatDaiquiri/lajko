@@ -10,6 +10,11 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "@apollo/client": "^3.8.8",
+    "@vue/apollo-composable": "^4.0.0-beta.12",
+    "@vue/apollo-option": "^4.0.0-beta.12",
+    "graphql": "^16.8.1",
+    "graphql-tag": "^2.12.6",
     "vue": "^3.3.4"
   },
   "devDependencies": {

@@ -1,6 +1,6 @@
 # wombat custom directives;
 # notes.txt is a text file for general copy-paste buffering
-notes.txt
+notes*
 # data-snapshots/ is for storing scraped posts
 data-snapshots/
 # data-processed/ is for storing scraped posts
