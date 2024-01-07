@@ -1,11 +1,8 @@
-# GraphQL schema example
-#
-# https://gqlgen.com/getting-started/
-#
 # All timestamp are in unix timestamp (seconds) in UTC timezone.
 
 type Query {
     posts(query: PostQuery): [Post!]!
+    wrapped2023(username: String!): Wrapped2023!
 }
 
 # type Mutation {
@@ -80,6 +77,20 @@ type Comment {
     tags: [Tag!]
 
     likes: Int!
+}
+
+type Wrapped2023 {
+    user: Author!
+
+    mostLikedPost: Post!
+    leastLikedPost: Post!
+    mostCommentedPost: Post!
+    leastCommentedPost: Post!
+}
+
+type Wrapped2023Counter {
+    key: String!
+    value: Int!
 }
 
 input PostQuery {

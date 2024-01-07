@@ -1,66 +1,23 @@
-<script>
-import Post from './components/Post.vue'
-import gql from 'graphql-tag';
-
-export default {
-  data() {
-    return {
-      posts: null,
-      loading: false,
-      error: null
-    };
-  },
-
-  apollo: {
-    // Define the Apollo query
-    posts: {
-      query: gql`query posts {
-          posts {
-            author {
-              username
-              avatarUrl
-            }
-            title
-            content
-          }
-        }`,
-      // Update loading and error states
-      update(data) {
-        console.log('data came in: ', data.posts)
-        this.loading = false;
-        return data.posts;
-      },
-      loadingKey: 'loading',
-      error(error) {
-        this.error = error;
-        this.loading = false;
-      }
-    }
-  },
-
-  created() {
-    console.log('created')
-    this.loading = true;
-  },
-
-  components: { Post },
-};
+<script setup>
+import PostList from './components/PostList.vue'
 </script>
 
 <template>
-  <main>
-    <h1>rendering posts below</h1>
-    <Post :post=post v-for="post in posts"/>
-  </main>
+  qqq
+  <PostList />
 </template>
 
-<style>
-@font-face {
-  font-family: Poppins-medium;
-  src: url('./assets/fonts/Poppins-Medium.ttf');
+<style scoped>
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
 }
-@font-face {
-  font-family: Poppins;
-  src: url('./assets/fonts/Poppins-Regular.ttf');
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.vue:hover {
+  filter: drop-shadow(0 0 2em #42b883aa);
 }
 </style>

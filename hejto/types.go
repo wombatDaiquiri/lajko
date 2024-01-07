@@ -33,6 +33,8 @@ type PostPagination struct {
 	Limit    int
 	OrderBy  PostOrdering
 	OrderDir OrderingDirection
+
+	FromAuthor string
 }
 
 func (pp PostPagination) Query() string {
@@ -42,6 +44,9 @@ func (pp PostPagination) Query() string {
 	} else {
 		query.Set("page", strconv.Itoa(pp.Page))
 	}
+
+	// TODO: Actual query
+
 	return query.Encode()
 }
 

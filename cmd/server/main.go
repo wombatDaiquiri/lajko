@@ -15,7 +15,7 @@ import (
 	"github.com/wombatDaiquiri/lajko/resolver"
 )
 
-//go:embed schema.graphqls.v2
+//go:embed schema.graphqls
 var graphqlSchema string
 
 func main() {
@@ -31,17 +31,12 @@ func main() {
 	r := chi.NewRouter()
 	r.Use(
 		middleware.Logger,
-		cors.Handler(cors.Options{
-			AllowedOrigins:   []string{"https://*", "http://*"},
-			AllowedMethods:   []string{"GET", "POST", "PUT", "DELETE", "OPTIONS"},
-			AllowedHeaders:   []string{"Accept", "Authorization", "Content-Type", "X-CSRF-Token"},
-			ExposedHeaders:   []string{"Link"},
-			AllowCredentials: false,
-			MaxAge:           300, // Maximum value not ignored by any of major browsers
-		}),
+		cors.AllowAll().Handler,
 	)
+
 	r.Handle("/graphql", &relay.Handler{Schema: schema})
 	r.Get("/", func(w http.ResponseWriter, r *http.Request) {
+		fmt.Println("xd")
 		w.Write([]byte("welcome"))
 	})
 
