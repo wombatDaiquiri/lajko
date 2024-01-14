@@ -3,11 +3,11 @@ package hejto
 import (
 	"context"
 	"encoding/json"
-	"fmt"
 	"io"
 	"net/http"
 
 	"github.com/wombatDaiquiri/lajko/database"
+	"github.com/wombatDaiquiri/lajko/ee"
 )
 
 type Client struct{}
@@ -22,17 +22,15 @@ func (c *Client) Posts(ctx context.Context, pagination PostPagination) ([]databa
 	if err != nil {
 		return nil, err
 	}
-	defer resp.Body.Close()
+	defer ee.CloseHTTPResponse(resp)
 
 	respB, err := io.ReadAll(resp.Body)
 	if err != nil {
 		return nil, err
 	}
-	//	fmt.Printf("\n\n\n\n\n\n\n\n\n\n\n\n\nbody: %s\n\n\n\n\n\n\n\n\n\n\n\n\n", respB)
 	var postResp postResponse
 	err = json.Unmarshal(respB, &postResp)
 	if err != nil {
-		fmt.Printf("\n\n\n\n\n\n\n\n\n\n\n\n\nbody: %s\n\n\n\n\n\n\n\n\n\n\n\n\n", respB)
 		return nil, err
 	}
 

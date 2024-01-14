@@ -7,7 +7,7 @@ import (
 	"github.com/wombatDaiquiri/lajko/database"
 	"github.com/wombatDaiquiri/lajko/ee"
 	"github.com/wombatDaiquiri/lajko/ee/slices"
-	"github.com/wombatDaiquiri/lajko/hejto"
+	hejto2 "github.com/wombatDaiquiri/lajko/integrations/hejto"
 )
 
 func New() *Resolver {
@@ -17,11 +17,11 @@ func New() *Resolver {
 type Resolver struct{}
 
 func (r *Resolver) Posts(ctx context.Context, args struct{ Query *PostQuery }) ([]Post, error) {
-	pagination := hejto.PostPagination{
+	pagination := hejto2.PostPagination{
 		Page:     1,
 		Limit:    10,
-		OrderBy:  hejto.PostOrderingHotness,
-		OrderDir: hejto.DESC,
+		OrderBy:  hejto2.PostOrderingHotness,
+		OrderDir: hejto2.DESC,
 	}
 	if args.Query != nil {
 		if args.Query.Page != nil {
@@ -31,14 +31,14 @@ func (r *Resolver) Posts(ctx context.Context, args struct{ Query *PostQuery }) (
 			pagination.Limit = int(*args.Query.Limit)
 		}
 		if args.Query.OrderBy != nil {
-			pagination.OrderBy = hejto.PostOrdering(*args.Query.OrderBy)
+			pagination.OrderBy = hejto2.PostOrdering(*args.Query.OrderBy)
 		}
 		if args.Query.OrderDir != nil {
-			pagination.OrderDir = hejto.OrderingDirection(*args.Query.OrderDir)
+			pagination.OrderDir = hejto2.OrderingDirection(*args.Query.OrderDir)
 		}
 	}
 
-	client := hejto.Client{}
+	client := hejto2.Client{}
 	posts, err := client.Posts(context.Background(), pagination)
 	if err != nil {
 		return []Post{}, fmt.Errorf("return posts from hejto: %w", err)
@@ -51,31 +51,31 @@ func (r *Resolver) Posts(ctx context.Context, args struct{ Query *PostQuery }) (
 func (r *Resolver) Wrapped2023(ctx context.Context, args struct {
 	Username string
 }) (Wrapped2023, error) {
-	client := hejto.Client{}
+	client := hejto2.Client{}
 
-	pagination := hejto.PostPagination{FromAuthor: args.Username, Page: 1, Limit: 1,
-		OrderBy: hejto.PostOrderingLikes, OrderDir: hejto.DESC}
+	pagination := hejto2.PostPagination{FromAuthor: args.Username, Page: 1, Limit: 1,
+		OrderBy: hejto2.PostOrderingLikes, OrderDir: hejto2.DESC}
 	mostLikedPost, err := client.Posts(ctx, pagination)
 	if err != nil {
 		return Wrapped2023{}, fmt.Errorf("return posts from hejto: %w", err)
 	}
 
-	pagination = hejto.PostPagination{FromAuthor: args.Username, Page: 1, Limit: 1,
-		OrderBy: hejto.PostOrderingLikes, OrderDir: hejto.ASC}
+	pagination = hejto2.PostPagination{FromAuthor: args.Username, Page: 1, Limit: 1,
+		OrderBy: hejto2.PostOrderingLikes, OrderDir: hejto2.ASC}
 	leastLikedPost, err := client.Posts(ctx, pagination)
 	if err != nil {
 		return Wrapped2023{}, fmt.Errorf("return posts from hejto: %w", err)
 	}
 
-	pagination = hejto.PostPagination{FromAuthor: args.Username, Page: 1, Limit: 1,
-		OrderBy: hejto.PostOrderingNumComments, OrderDir: hejto.DESC}
+	pagination = hejto2.PostPagination{FromAuthor: args.Username, Page: 1, Limit: 1,
+		OrderBy: hejto2.PostOrderingNumComments, OrderDir: hejto2.DESC}
 	mostCommentedPost, err := client.Posts(ctx, pagination)
 	if err != nil {
 		return Wrapped2023{}, fmt.Errorf("return posts from hejto: %w", err)
 	}
 
-	pagination = hejto.PostPagination{FromAuthor: args.Username, Page: 1, Limit: 1,
-		OrderBy: hejto.PostOrderingNumComments, OrderDir: hejto.ASC}
+	pagination = hejto2.PostPagination{FromAuthor: args.Username, Page: 1, Limit: 1,
+		OrderBy: hejto2.PostOrderingNumComments, OrderDir: hejto2.ASC}
 	leastCommentedPost, err := client.Posts(ctx, pagination)
 	if err != nil {
 		return Wrapped2023{}, fmt.Errorf("return posts from hejto: %w", err)

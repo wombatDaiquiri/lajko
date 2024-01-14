@@ -3,7 +3,6 @@ import PostList from './components/PostList.vue'
 </script>
 
 <template>
-  qqq
   <PostList />
 </template>
 

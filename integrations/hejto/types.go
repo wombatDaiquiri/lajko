@@ -44,8 +44,17 @@ func (pp PostPagination) Query() string {
 	} else {
 		query.Set("page", strconv.Itoa(pp.Page))
 	}
-
-	// TODO: Actual query
+	if pp.Limit < 1 {
+		query.Set("limit", "10")
+	} else {
+		query.Set("limit", strconv.Itoa(pp.Limit))
+	}
+	if pp.OrderBy != "" {
+		query.Set("orderBy", string(pp.OrderBy))
+	}
+	if pp.OrderDir != "orderDir" {
+		query.Set("", string(pp.OrderDir))
+	}
 
 	return query.Encode()
 }
